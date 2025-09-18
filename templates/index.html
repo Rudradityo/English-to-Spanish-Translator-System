@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/site.css') }}">
+    <title>English to Spanish Translator</title>
+</head>
+<body>
+	<div class="container" id="main-content">
+        <h1>English to Spanish Translator</h1>
+		<h2>Natural Language Processing Domain</h2>
+        <form action="/translate" method="post">
+            <label for="text">Enter or Upload Technical Text in English</label>
+			<label for="text">English</label>
+            <textarea id="text" name="text" rows="3" cols="30" placeholder="Type your text here..." style="resize: vertical;"></textarea>
+            <br>
+            <input type="file" id="file" accept=".txt">
+            <br><br>
+            <input type="submit" value="Translate" class="submit-button">
+        </form>
+        <br>
+		<label for="translation">Spanish</label>
+		<textarea id="translation" name="translation" rows="3" cols="30" placeholder="Translated text is displayed here..." style="resize: vertical;" disabled></textarea>
+		<br>
+		<button id="refresh-button">Refresh</button>
+		<br>
+        <button id="exit-button">Exit</button>
+	</div>
+
+	<script>
+		document.getElementById('file').addEventListener('change', function() {
+			var textInput = document.getElementById('text');
+			if (this.value) {
+				textInput.disabled = true; // Disable the textbox if a file is uploaded
+			} else {
+				textInput.disabled = false; // Enable the textbox if no file is uploaded
+			}
+		});
+
+		document.getElementById('text').addEventListener('input', function() {
+			var fileInput = document.getElementById('file');
+			if (this.value) {
+				fileInput.disabled = true; // Disable the file input if text is entered
+			} else {
+				fileInput.disabled = false; // Enable the file input if textbox is empty
+			}
+		});
+
+		document.querySelector('form').addEventListener('submit', function(event) {
+			event.preventDefault(); // Prevent default form submission
+			
+			var textInput = document.getElementById('text').value;
+			var fileInput = document.getElementById('file').files[0];
+			
+			if (textInput || fileInput) {
+				var formData = new FormData();
+				if (textInput) {
+					formData.append('text', textInput);
+				} else {
+					formData.append('file', fileInput);
+				}
+
+				fetch('/translate', {
+					method: 'POST',
+					body: formData
+				})
+				.then(response => response.text())
+				.then(translation => {
+					document.getElementById('translation').value = translation;
+				})
+				.catch(error => {
+					console.error('Error:', error);
+				});
+			} else {
+				alert("Please enter text or upload a file."); // Alert if neither input is provided
+			}
+		});
+		
+		document.getElementById('refresh-button').addEventListener('click', function() {
+            location.reload();
+        });
+		
+		document.getElementById('exit-button').addEventListener('click', function() {
+            document.getElementById('main-content').classList.add('hidden');
+            alert("You have exited the form.");
+        });
+	</script>
+</body>
+</html>

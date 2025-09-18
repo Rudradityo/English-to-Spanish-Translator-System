@@ -1,0 +1,1 @@
+Lemmatization is essential for processing morphologically complex languages like Arabic. Stemming refers to a simpler version of lemmatization in which we mainly just strip suffixes from the end of the word.

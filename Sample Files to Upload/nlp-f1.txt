@@ -1,0 +1,1 @@
+Normalizing text means converting it to a more convenient, standard form. For example, most of what we are going to do with language relies on first separating out or tokenizing words from running tokenization text, the task of tokenization.

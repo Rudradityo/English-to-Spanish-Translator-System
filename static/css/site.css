@@ -1,0 +1,118 @@
+/* Base Styles */
+
+body {
+    font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+	background-color: #f0f8ff;
+	margin: 20px;
+	padding: 20px;
+	color: #333;
+}
+
+.container {
+	max-width: 1000px;
+	margin: auto;
+	background-color: #ffffff;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Header Styles */
+
+ h1 {
+	text-align: center;
+	color: #00796b;
+	font-family: Arial, sans-serif;
+}
+
+h2 {
+	text-align: center;
+	font-family: Arial, sans-serif;
+}
+
+/* Form Styles */
+form {
+    margin-top: 30px;
+}
+
+label {
+    color: #333; /* Change text color */
+    font-size: 18px; /* Set font size */
+    font-weight: bold; /* Make text bold */
+	margin-bottom: 10px; /* Add space below the label */
+    display: block; /* Make the label a block element */
+}
+
+
+textarea {
+    width: 80%;
+    height: 80px;
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+.submit-button {
+    background-color: #007BFF; /* Blue background */
+    color: white; /* White text color */
+    border: none; /* Remove default border */
+    padding: 10px 20px; /* Vertical and horizontal padding */
+    font-size: 16px; /* Font size */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+	text-align: center;
+	height: 40px;
+	width: 105px;
+}
+
+/* Hover effect */
+.submit-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+
+#refresh-button {
+	background-color: green; /* Green background */
+    color: white; /* White text color */
+    border: none; /* Remove default border */
+    padding: 10px 20px; /* Vertical and horizontal padding */
+    font-size: 16px; /* Font size */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+	margin-top: 15px;
+	text-align: center;
+	height: 40px;
+	width: 105px;
+}
+
+#refresh-button:hover {
+    background-color: #006400; /* Darker green on hover */
+}
+
+#exit-button {
+	background-color: #B22222; /* Red background */
+    color: white; /* White text color */
+    border: none; /* Remove default border */
+    padding: 10px 20px; /* Vertical and horizontal padding */
+    font-size: 16px; /* Font size */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+	margin-top: 15px;
+	text-align: center;
+	height: 40px;
+	width: 105px;
+}
+
+#exit-button:hover {
+    background-color: #8B0000; /* Darker red on hover */
+}
+
+.hidden {
+            display: none;
+}
